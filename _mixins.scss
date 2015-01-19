@@ -60,7 +60,7 @@
 
 
 // Fallback for REM sizing
-//http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+// http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
@@ -94,9 +94,9 @@
 
 
 // SVG Fallback for BG Image
-// to use : @include vector-bg-with-fallback(nameofimage);
+// Usage:
+// @include vector-bg-with-fallback(nameofimage);
 $public_path: "../";
- 
 @mixin vector-bg-with-fallback($name) {
   background-image: url('#{$public_path}images/#{$name}.png');
   background-image: none, url('#{$public_path}images/#{$name}.svg');
@@ -104,6 +104,8 @@ $public_path: "../";
 
 
 // Retina Background Images
+// Usage: 
+// @include background-image-retina($file, $type, $width, $height);
 @mixin background-image-retina($file, $type, $width, $height) {
   background-image: url('../images/' + $file + '.' + $type);
 
@@ -128,34 +130,4 @@ $public_path: "../";
  @mixin anti-aliasing{
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
- }
-
-
-//@include triangle within a pseudo element and add positioning properties (ie. top, left)
-// $direction: up, down, left, right
- @mixin triangle($direction, $size: 6px, $color: #222){
-   content: '';
-   display: block;
-   position: absolute;
-   height: 0; width: 0;
-   @if ($direction == 'up'){
-     border-bottom: $size solid $color;
-     border-left: 1/2*$size solid transparent;
-     border-right: 1/2*$size solid transparent;
-   }
-   @else if ($direction == 'down'){
-     border-top: $size solid $color;
-     border-left: 1/2*$size solid transparent;
-     border-right: 1/2*$size solid transparent;
-   }
-   @else if ($direction == 'left'){
-     border-top: 1/2*$size solid transparent;
-     border-bottom: 1/2*$size solid transparent;
-     border-right: $size solid $color;
-   }
-   @else if ($direction == 'right'){
-     border-top: 1/2*$size solid transparent;
-     border-bottom: 1/2*$size solid transparent;
-     border-left: $size solid $color;
-   }
  }
