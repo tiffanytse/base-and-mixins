@@ -47,6 +47,13 @@
 }
 
 
+// Zero margin and padding
+@mixin zero{
+   margin: 0;
+   padding: 0;
+ }
+
+
 // Fallback for RGBA
 // Usage:
 // @include alpha-attribute('background-color', rgba(black, 0.5), white);
